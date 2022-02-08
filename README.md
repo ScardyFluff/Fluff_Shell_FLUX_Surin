@@ -1,2 +1,2 @@
-# Fluff_Shell_Flux_Surin
- A shell for Flux.
+# Shell: Surin (FLUX Shell)
+ A custom shell for FLUX.
