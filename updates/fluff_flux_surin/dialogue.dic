@@ -6,52 +6,54 @@
 
 
 //Write the current version of your shell here, and it'll be noted on the main menu. Try it out!
-//shellver
-//{
-	//"1.0.0"
-//}
+shellver
+{
+	"1.0.0"
+}
 
 //Set up the path to your tray icon here, and it'll automatically change to it whenever your shell is loaded. Note that you'll need to keep the /../../shell/ part as it is, just edit the path after that
 //OnCustom_trayicon
 //{
-	//"\![set,tasktrayicon,/../../shell/your_shell/your_shells_icon.ico]"
+	//"\![set,tasktrayicon,/../../shell/fluff_flux_surin/flux_surin_icon.ico]"
 //}
 
 //Custom dialogue for when FLUX is booted. If you want, you can use the _timesince bit I've commented out for the number of days since FLUX was last loaded. Note that a notify command and trayicon command will always happen before any dialogue. Uses the same references as OnBoot.
-//OnCustom_OnBoot
-//{
+OnCustom_OnBoot
+{
 	//_timesince = FUNCTIONEX("time_check.dll","how_many_days",lastclosed[0],lastclosed[1],lastclosed[2],0,0,0) * -1
-//}
+	"Heyo!"
+}
 
 //Custom dialogue for when FLUX is closed. Note that the command to stop sound and a notifyother command will always happen first. Also, don't end dialogues here with a \e, FLUX automatically appends \w8\w8\-\e at the end of any dialogues here. Uses the same references as OnClose.
-//OnCustom_OnClose
-//{
-	
-//}
+OnCustom_OnClose
+{
+	"Buh-Bye!"
+}
 
 //Custom dialogue when FLUX is swapping to another ghost. Same notes as above. Uses the same references as OnGhostChanging.
-//OnCustom_OnGhostChanging
-//{
-	
-//}
+OnCustom_OnGhostChanging
+{
+	"So you're swapping, huh?"
+}
 
 //Custom dialogue when FLUX was switched to from another ghost. If you want, you can use the _timesince bit I've commented out for the number of days since FLUX was last closed. Note that a notify command will always happen before any dialogue. Uses the same references as OnGhostChanged.
-//OnCustom_OnGhostChanged
-//{
+OnCustom_OnGhostChanged
+{
 	//_timesince = FUNCTIONEX("time_check.dll","how_many_days",lastclosed[0],lastclosed[1],lastclosed[2],0,0,0) * -1
-//}
+	"Hey! Lets sing!"
+}
 
 //Custom dialogue when changing away from a shell. Uses the same references as OnShellChanging.
-//OnCustom_OnShellChanging
-//{
-	
-//}
+OnCustom_OnShellChanging
+{
+	"Aw."
+}
 
 //Custom dialogue after changing to a new shell. If you have any issues with this function not being called properly, please let me know! The whole shell change system is a little slow/janky because it has to copy over all of the information in this file, and then reload itself, before it can run this dialogue. Reference values here should be the same as OnShellChanged.
-//OnCustom_OnShellChanged
-//{
-	
-//}
+OnCustom_OnShellChanged
+{
+	"Hiya!"
+}
 
 //Custom dialogue for the randomtalk function. Having this function in your file will enable the 'say something' option on the main menu! I included an example if/else for splitting up your dialogue into singing vs idle dialogue, but you can ignore that if you want. If you want to use it, you'll need to create the Custom_SingingDialogue and Custom_IdleDialogue functions!
 //Note, the Singing function returns 1 if FLUX is playing music, and 0 if it's not.
@@ -68,10 +70,10 @@
 //}
 
 //Custom dialogue pool for being pet! This function is specifically called when the player moves their mouse over the "stroke_p" hitbox for a short while, which is usually the head. FLUX uses the variable totalpets to track the total number of times FLUX has been pet; if you want to track this for your shell specifically you'll need to add a custom variable! Make sure the name is very definitely unique, though. sanspets would be too generic, but zichqec_sanspets would be unique enough that it should never overlap with anyone else's. Uses the same references as OnMouseMove.
-//OnCustom_Petting
-//{
-	
-//}
+OnCustom_Petting
+{
+	"Why are you petting me? Heehee!"
+}
 
 //If you want to get a little more detailed with your stroking dialogues, you can set them up in this function. Note that this one is specifically for the Sakura character! If the user has their cursor over any hitboxes other than "stroke_p", this function will be called instead. Uses the same references as OnMouseMove.
 //OnCustom_MouseMoveSakura
@@ -125,21 +127,21 @@
 //}
 
 //These surfaces are the ones for when the user uses etc functions. They're called through an embed tag; reference0 will be "Error" if the function ends in an error, "Refuse" if it ends in something minor (like trying to add songs of an incompatible type), and "Action" if it's a normal action. You can skip this if check and just make it a single surface if you want! It's just so you can have your shell frown if something goes wrong, etc.
-//OnCustom_ActionSurfaces
-//{
-	//if reference0 == "Error"
-	//{
-		
-	//}
-	//elseif reference0 == "Refuse"
-	//{
-		
-	//}
-	//else
-	//{
-		
-	//}
-//}
+OnCustom_ActionSurfaces
+{
+	if reference0 == "Error"
+	{
+		"I think somethng went wrong."
+	}
+	elseif reference0 == "Refuse"
+	{
+		"I don't think that works..."
+	}
+	else
+	{
+		"Let's do this!"
+	}
+}
 
 //Custom responses to Commu dialogues! Please be careful with this haha. Note that FLUX will always send its current stats after every commu. FLUX is also set up so that it won't respond unless no balloon is open. If it receives a message while the balloon is open, it will store it and respond later. You can use the ConvoTag variable here to send information back and forth that the user can't see, if you're not sure how this system works then ask me about it and I'll show you. My other ghosts make extensive use of it, and I'm planning to write a guide eventually. References are the same as OnCommunicate.
 //OnCustom_Commu
@@ -155,16 +157,16 @@
 
 //This is for when the user sets their birthday, and it just so happens to be the current day. The 'birthday' array contains all the information about their birthday. If you want to say the birthday in this format: 'May 8th', you can use bitrhday[0]. For other formats, or to get just the month or day, please refer to the reference in fx_nameteach.dic, above the OnUserBornMonth function.
 //Note, a couple linebreaks and then buttons to go back to config menu are automatically placed after this dialogue. Don't end it with a \e!
-//OnCustom_BirthdaySet
-//{
-	
-//}
+OnCustom_BirthdaySet
+{
+	"Happy birthday!"
+}
 
 //Custom dialogue for when the year rolls over at midnight! References are the same as OnSecondChange.
-//OnCustom_NewYear
-//{
-	
-//}
+OnCustom_NewYear
+{
+	"Happy New Year!"
+}
 
 //Custom dialogue for if another ghost has been uninstalled. This will be called if FLUX is switched to when another ghost was running alone and was uninstalled, or if FLUX is open when another ghost is uninstalled. Uses the same references as OnVanished.
 //There is a possible additional argument here. If the other ghost that was uninstalled was open alone, and it switched to FLUX after it finished, _argv[0] will contain 'boot'. Otherwise, it will be empty. You can use this to determine if FLUX just booted or not.

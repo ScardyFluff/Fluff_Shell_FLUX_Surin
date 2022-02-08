@@ -1,14 +1,9 @@
 version,1
-//This is using the new seriko definition. If you want to use the old one, change the version to 0
-//As a note, comments in seriko should all be on their own lines. Otherwise, you might get weird errors in your shell.
 
 //Idle
 surface0
 {
 	element0,overlay,surface0.png,0,0
-	//As a note, you can put your images in subfolders! I'd be careful doing it, but it could be very helpful! It would look something like this
-	//element0,overlay,yourfolder/surface0.png,0,0
-	//Any images in subfolders HAVE to be defined in a surface before you can use them in animations, though.
 	
 	//Blink
 	animation0.interval,random,4
@@ -29,6 +24,18 @@ surface6
 	element0,overlay,surface6.png,0,0
 }
 
+//Error
+surface7 
+{
+	element0,overlay,surface7.png,0,0
+}
+
+//Refuse
+surface8
+{
+	element0,overlay,surface8.png,0,0
+}
+
 //Singing
 surface25
 {
@@ -39,6 +46,7 @@ surface25
 	collisionex7,stop_button1,polygon,139,137,197,137,184,175,126,175
 	collisionex8,stop_button1,polygon,25,86,55,86,61,124,32,124
 }
+
 
 //These collisions are appended to surfaces 0 through 25, except surface10 because that's the default Kero surface (which this shell isn't using)
 surface.append0-25,!10
